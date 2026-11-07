@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "openrouter.spending",
+  "name": "OpenRouter Spending",
+  "version": "1.0.0",
+  "author": "Local",
+  "license": "MIT",
+  "description": "OpenRouter API-key spend for today, this month, and all time.",
+  "kinds": ["bar-widget"],
+  "activation": "on-demand",
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "OpenRouter Spending",
+    "description": "Daily and monthly OpenRouter API-key usage in a native popup.",
+    "category": "AI",
+    "aliases": ["openrouter", "spending"],
+    "allowMultiple": false
+  }
+}
