@@ -4,7 +4,7 @@ A native bar popup showing spend for the API key Hermes Agent uses: today, this 
 
 ## Install on a new machine
 
-The repo is private, so the machine needs GitHub access over SSH first (`gh auth login` can generate and upload a key).
+The repo is private, so the machine needs GitHub access over SSH first (`gh auth login --git-protocol ssh` can generate and upload a key).
 
 ```sh
 # 1. Download and enable the plugin (lands in ~/.config/omarchy/plugins/openrouter.spending)
@@ -12,11 +12,11 @@ omarchy plugin add git@github.com:kejhy93/openrouter-spending.git --enable
 
 # 2. API key used for daily/monthly/all-time spend (required)
 mkdir -p ~/.hermes
-[ -f ~/.hermes/.env ] || install -m 600 /dev/null ~/.hermes/.env
+(umask 077 && touch ~/.hermes/.env) && chmod 600 ~/.hermes/.env
 $EDITOR ~/.hermes/.env    # add: OPENROUTER_API_KEY=...
 
 # 3. Management key for the per-model breakdown (optional)
-install -m 600 /dev/null ~/.config/omarchy/openrouter.env
+(umask 077 && touch ~/.config/omarchy/openrouter.env) && chmod 600 ~/.config/omarchy/openrouter.env
 $EDITOR ~/.config/omarchy/openrouter.env    # add: OPENROUTER_MANAGEMENT_KEY=...
 ```
 
